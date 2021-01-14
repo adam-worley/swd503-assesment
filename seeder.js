@@ -21,6 +21,31 @@ async function main() {
 
     const data = await fs.readFile(path.join(__dirname, "covid.json"), "utf8");
     await db.collection("infections").insertMany(JSON.parse(data));
+
+    await db.collection("infections").aggregate([
+        { $group: { _id: "$country" } },
+        { $project: { name: "$_id", "_id": 0 } },
+        { $out: "countries" }
+    ]).toArray()
+
+    await db.collection("infections").aggregate([
+        { $group: { _id: "$county" } },
+        { $project: { name: "$_id", "_id": 0 } },
+        { $out: "counties" }
+    ]).toArray()
+    
+    await db.collection("infections").aggregate([
+        { $group: { _id: "$name" } },
+        { $project: { name: "$_id", "_id": 0 } },
+        { $out: "unis" }
+    ]).toArray()
+
+    await db.collection("infections").aggregate([
+        { $group: { _id: "$city" } },
+        { $project: { name: "$_id", "_id": 0 } },
+        { $out: "cities" }
+    ]).toArray()
+    
   
     load.stop();
     console.info(
