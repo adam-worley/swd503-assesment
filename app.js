@@ -59,6 +59,10 @@ const authMiddleware = async (req, res, next) => {
   next()
 }
 
+app.get("/statistics", authMiddleware, (req, res) => {
+  res.render("statistics", { errors: {} });
+});
+
 app.get("/logout", async (req, res) => {
   req.session.destroy();
   global.user = false;
@@ -70,9 +74,6 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/statistics", (req, res) => {
-  res.render("statistics");
-});
 
 app.get("/join", (req, res) => {
   res.render('create-user', { errors: {} })
@@ -84,8 +85,7 @@ app.get("/login", (req, res) => {
 });
 app.post("/login", userController.login);
 
-app.get("/tastings", infectionController.list);
-app.get("/tastings/delete/:id", infectionController.delete);
+app.get("/statistics", infectionController.list);
 
 
 app.listen(WEB_PORT, () => {

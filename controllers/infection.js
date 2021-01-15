@@ -1,4 +1,4 @@
-const Tasting = require("../models/Infection");
+const Infection = require("../models/Infection");
 
 exports.list = async (req, res) => {
   const perPage = 10;
@@ -8,12 +8,12 @@ exports.list = async (req, res) => {
 
 
   try {
-    const tastings = await Tasting.find({}).skip((perPage * page) - perPage).limit(limit);
-    const count = await Tasting.find({}).count();
+    const infections = await Infection.find({}).skip((perPage * page) - perPage).limit(limit);
+    const count = await Infection.find({}).count();
     const numberOfPages = Math.ceil(count / perPage);
 
-    res.render("tastings", {
-      tastings: tastings,
+    res.render("statistics", {
+      infections: infections,
       numberOfPages: numberOfPages,
       currentPage: page
     });

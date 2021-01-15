@@ -31,11 +31,39 @@
   <div class="container">
     <div class="row col-md-12 col-md-offset-2 custyle mx-auto"> 
     <h1 class="mx-auto"> 🦠 Covid-19 Statistics 🦠  </h1>
+    <table class="table table-striped custab">
+        <thead>
+            <tr>
+                <th>University</th>
+                <th>Number of cases</th>
+            </tr>
+    
+            <%  
+            
+              infections.forEach(infect => {
+                
+            %>
+    
+                <tr>
+                    <td><%=  infect.name  %></td>
+                    <td><%=  infect.students_infected  %></td>
+                </tr>
+                
+             <%  
+              });
+             %>
+    
+    
+           
+        </thead>
+              
+        </table>
+        </div>
+        <div class="row col-md-12 col-md-offset-2 custyle mx-auto">
+         
   </nav>
     </div>
     
-    <!-- PAGINATION ARTICLE: https://evdokimovm.github.io/javascript/nodejs/mongodb/pagination/expressjs/ejs/bootstrap/2017/08/20/create-pagination-with-nodejs-mongodb-express-and-ejs-step-by-step-from-scratch.html-->
-    <!--- https://medium.com/swlh/master-ejs-template-engine-with-node-js-and-expressjs-979cc22b69be-->
     <%- include('common/footer') -%>
   </body>
 </html>

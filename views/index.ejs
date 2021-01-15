@@ -55,7 +55,17 @@
       </section>
       <% if(user) { %>
         <section>
-          <p>User logged in</p>
+        <main role="main">
+      <section class="jumbotron text-center">
+        <div class="container">
+          <h1>Your University</h1>
+          <p class="lead text-muted">Keep up to date with how Covid-19 is affecting students at your university</p>
+          <h2>
+            <strong>X</strong> active Covid-19 cases at <strong>X</strong>.
+            With real time data added by <strong>X</strong> students from your university.
+          </h2>
+        </div>
+      </section>
         </section>
         <% } %> 
         <% if(!user) { %>
