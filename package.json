@@ -1,8 +1,8 @@
 {
   "name": "swd503-assesment",
   "version": "1.0.0",
-  "description": "Covid web app for enterprise database development",
-  "main": "app.js",
+  "description": "blaa",
+  "main": "index.js",
   "engines": {
     "node": "14.x"
   },
@@ -10,18 +10,14 @@
     "dev": "nodemon app.js",
     "start": "node app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/adam-worley/SWD503-Assesment.git"
-  },
   "keywords": [],
-  "author": "Adam Worley",
+  "author": "",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.5"
   },
   "dependencies": {
-    "bcrypt": "5.0.0",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
     "chalk": "^4.1.0",
     "dotenv": "^8.2.0",
