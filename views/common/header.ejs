@@ -9,10 +9,10 @@
         <% if(user) { %>
         <a class="nav-link" href=""> Statistics</a>
         <a class="nav-link" href="">Your Covid status </a>
-        <a class="nav-link" href=""> <%= user.email %> (Logout) </a> <%
+        <a class="nav-link" href="logout"> <%= user.email %> (Logout) </a> <%
         }%> <% if(!user) { %>
-        <a class="nav-link" href=""> Login </a>
-        <a class="nav-link" href=""> Sign-up </a>
+        <a class="nav-link" href="login"> Login </a>
+        <a class="nav-link" href="join"> Sign-up </a>
         <% } %>
       </div>
     </div>
