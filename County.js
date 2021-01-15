@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-const citySchema = new Schema(
+const countySchema = new Schema(
     {
         name: { type: String, required: [true, 'Name is required'] },
     },
     { timestamps: true }
 );
 
-module.exports = mongoose.model("City", citySchema);
+module.exports = mongoose.model("County", countySchema);

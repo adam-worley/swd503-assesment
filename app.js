@@ -4,6 +4,7 @@ const path = require("path");
 const mongoose = require("mongoose");
 const chalk = require("chalk");
 const bodyParser = require("body-parser");
+const countriesModel = require("./models/Country");
 const expressSession = require("express-session");
 const User = require("./models/User");
 
@@ -11,7 +12,10 @@ const User = require("./models/User");
 /**
  * Controllers (route handlers).
  */
-
+const tasterController = require("./controllers/taster");
+const tastingController = require("./controllers/tasting");
+const homeController = require("./controllers/home");
+const userController = require("./controllers/user");
 
 const app = express();
 app.set("view engine", "ejs");
@@ -73,6 +77,37 @@ app.get("/logout", async (req, res) => {
   global.user = false;
   res.redirect('/');
 })
+
+app.get("/create-taster", authMiddleware, (req, res) => {
+  res.render("create-taster", { errors: {} });
+});
+
+app.post("/create-taster", tasterController.create);
+
+app.get("/tasters", tasterController.list);
+app.get("/tasters/delete/:id", tasterController.delete);
+app.get("/tasters/update/:id", tasterController.edit);
+app.post("/tasters/update/:id", tasterController.update);
+
+
+app.get("/create-tasting", tastingController.createView);
+app.post("/create-tasting", tastingController.create);
+app.get("/update-tasting/:id", tastingController.edit);
+
+
+app.get("/tastings", tastingController.list);
+app.get("/tastings/delete/:id", tastingController.delete);
+
+app.get("/join", (req, res) => {
+  res.render('create-user', { errors: {} })
+});
+
+app.post("/join", userController.create);
+app.get("/login", (req, res) => {
+  res.render('login-user', { errors: {} })
+});
+app.post("/login", userController.login);
+
 
 app.listen(PORT, () => {
   console.log(
