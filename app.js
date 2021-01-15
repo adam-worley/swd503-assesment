@@ -7,8 +7,7 @@ const chalk = require("chalk");
 /**
  * Controllers (route handlers).
  */
-const tasterController = require("./controllers/taster");
-const tastingController = require("./controllers/tasting");
+const infectionController = require("./controllers/infection");
 
 const app = express();
 app.set("view engine", "ejs");
@@ -42,13 +41,8 @@ app.get("/", (req, res) => {
 
 
 
-app.post("/create-taster")
-
-app.get("/tasters", tasterController.list);
-app.get("/tasters/delete/:id", tasterController.delete);
-
-app.get("/tastings", tastingController.list);
-app.get("/tastings/delete/:id", tastingController.delete);
+app.get("/tastings", infectionController.list);
+app.get("/tastings/delete/:id", infectionController.delete);
 
 
 app.listen(WEB_PORT, () => {

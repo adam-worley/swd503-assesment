@@ -1,4 +1,4 @@
-const Tasting = require("../models/Tasting");
+const Tasting = require("../models/Infection");
 
 exports.list = async (req, res) => {
   const perPage = 10;
