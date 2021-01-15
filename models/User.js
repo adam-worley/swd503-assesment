@@ -5,9 +5,7 @@ const bcrypt = require('bcrypt');
 const userSchema = new Schema(
     {
         email: { type: String, required: [true, 'email is required'], unique: true },
-        password: { type: String, required: [true, 'password is required'] },
-        university: {type: String, required:[true, 'university is required'] },
-        infected: {type: Boolean, required: [true, 'infection status required']}
+        password: { type: String, required: [true, 'password is required'] }
     },
     { timestamps: true }
 );

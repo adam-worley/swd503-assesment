@@ -69,9 +69,15 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/join", (req, res) => {
+  res.render('create-user', { errors: {} })
+});
+app.post("/join", userController.create);
 
-
-
+app.get("/login", (req, res) => {
+  res.render('login-user', { errors: {} })
+});
+app.post("/login", userController.login);
 
 app.get("/tastings", infectionController.list);
 app.get("/tastings/delete/:id", infectionController.delete);
