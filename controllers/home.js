@@ -13,7 +13,7 @@ exports.list = async (req, res) => {
 
     
 
-    res.render("index", { totalUsers: totalUsers, infectedUnis: infectedUnis, totalCases: totalCases.$sum });
+    res.render("index", { totalUsers: totalUsers, infectedUnis: infectedUnis, totalCases: totalCases.pop().total });
 
     } catch (e) {
         res.status(404).send({
