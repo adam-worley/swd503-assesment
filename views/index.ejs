@@ -48,12 +48,17 @@
           <h1>The Student Covid Guide</h1>
           <p class="lead text-muted">Keep up to date with how Covid-19 is affecting Universities and students accross the UK</p>
           <h2>
+            <strong>X</strong> active Covid-19 cases in <strong>X</strong> different Universities.
+            With real time data added by <strong>X</strong> students accross the UK.
           </h2>
         </div>
       </section>
+      <% if(user) { %>
         <section>
           <p>User logged in</p>
         </section>
+        <% } %> 
+        <% if(!user) { %>
           <br>
           <br>
           <section id="login">
@@ -65,7 +70,7 @@
             </p>
           </main>
         </section>
-
+        <% } %>
     </main>
 
     <%- include('common/footer') -%>
