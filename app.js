@@ -70,6 +70,10 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+app.get("/statistics", (req, res) => {
+  res.render("statistics");
+});
+
 app.get("/join", (req, res) => {
   res.render('create-user', { errors: {} })
 });
