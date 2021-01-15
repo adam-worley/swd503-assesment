@@ -3,7 +3,7 @@ const fs = require("fs").promises;
 const path = require("path");
 const loading = require("loading-cli");
 
-const uri = "mongodb://localhost:27017/covid";
+const uri = "mongodb+srv://admin:Password123@cluster0.6t9m7.mongodb.net/covid?retryWrites=true&w=majority"
 const client = new MongoClient(uri);
 
 async function main() {
