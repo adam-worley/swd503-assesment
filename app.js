@@ -12,6 +12,7 @@ const User = require("./models/User");
  */
 const infectionController = require("./controllers/infection");
 const userController = require("./controllers/user");
+const homeController = require("./controllers/home");
 
 const app = express();
 app.set("view engine", "ejs");
@@ -59,8 +60,8 @@ const authMiddleware = async (req, res, next) => {
   next()
 }
 
-app.get("/statistics", authMiddleware, (req, res) => {
-  res.render("statistics", { errors: {} });
+app.get("/statistics",authMiddleware, infectionController.list, (req, res) => {
+  res.render("statistics",{ errors: {} });
 });
 
 app.get("/logout", async (req, res) => {
@@ -70,9 +71,7 @@ app.get("/logout", async (req, res) => {
 })
 
 
-app.get("/", (req, res) => {
-  res.render("index");
-});
+app.get("/", homeController.list);
 
 
 app.get("/join", (req, res) => {
@@ -85,7 +84,7 @@ app.get("/login", (req, res) => {
 });
 app.post("/login", userController.login);
 
-app.get("/statistics", infectionController.list);
+
 
 
 app.listen(WEB_PORT, () => {
